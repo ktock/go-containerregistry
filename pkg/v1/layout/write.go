@@ -158,6 +158,7 @@ func (l Path) WriteBlob(hash v1.Hash, r io.ReadCloser) error {
 		return err
 	}
 	defer w.Close()
+	defer r.Close()
 
 	_, err = io.Copy(w, r)
 	return err

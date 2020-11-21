@@ -362,6 +362,7 @@ func (w *writer) uploadOne(l v1.Layer) error {
 		if err != nil {
 			return err
 		}
+		defer blob.Close()
 		location, err = w.streamBlob(ctx, blob, location)
 		if err != nil {
 			return err
